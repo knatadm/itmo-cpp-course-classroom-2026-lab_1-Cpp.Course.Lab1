@@ -146,4 +146,6 @@ int main(int argc, char *argv[])
         std::cout << lab1::date::days_between(a, b) << "\n";
         return 0;
     }
+     std::cerr << "Unknown command or wrong number of arguments\n";
+    return 2;
 }
