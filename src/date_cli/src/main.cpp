@@ -1,7 +1,7 @@
+#include <cstddef>
+#include <iomanip>
 #include <iostream>
 #include <string>
-#include <iomanip>
-#include <cstddef>
 
 #include "lab1/date.hpp"
 
