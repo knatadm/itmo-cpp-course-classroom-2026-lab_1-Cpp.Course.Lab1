@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <cstddef>
 
 #include "lab1/date.hpp"
 
@@ -9,10 +10,10 @@ bool is_digit(char c)
     return c >= '0' && c <= '9';
 }
 
-int read_number(const std::string &text, int begin, int count)
+int read_number(const std::string &text, std::size_t begin, std::size_t count)
 {
     int value = 0;
-    for (int i = begin; i < begin + count; ++i)
+    for (std::size_t i = begin; i < begin + count; ++i)
     {
         value = value * 10 + (text[i] - '0');
     }
@@ -29,7 +30,7 @@ bool parse_date(const std::string &text, lab1::date::Date &out)
     {
         return false;
     }
-    for (int i = 0; i < 10; ++i)
+    for (std::size_t i = 0; i < 10; ++i)
     {
         if (i == 4 || i == 7)
         {
@@ -49,8 +50,8 @@ bool parse_date(const std::string &text, lab1::date::Date &out)
 
 bool parse_int(const std::string &text, int &out)
 {
-    const int length = static_cast<int>(text.length());
-    int start = 0;
+    const std::size_t length = text.length();
+    std::size_t start = 0;
     bool negative = false;
 
     if (length > 0 && text[0] == '-')
@@ -62,7 +63,7 @@ bool parse_int(const std::string &text, int &out)
     {
         return false;
     }
-    for (int i = start; i < length; ++i)
+    for (std::size_t i = start; i < length; ++i)
     {
         if (!is_digit(text[i]))
         {
