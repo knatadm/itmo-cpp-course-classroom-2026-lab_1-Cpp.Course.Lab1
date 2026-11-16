@@ -10,7 +10,7 @@ bool is_digit(char c)
     return c >= '0' && c <= '9';
 }
 
-int read_number(const std::string &text, std::size_t begin, std::size_t count)
+int read_number(const std::string& text, std::size_t begin, std::size_t count)
 {
     int value = 0;
     for (std::size_t i = begin; i < begin + count; ++i)
@@ -20,7 +20,7 @@ int read_number(const std::string &text, std::size_t begin, std::size_t count)
     return value;
 }
 
-bool parse_date(const std::string &text, lab1::date::Date &out)
+bool parse_date(const std::string& text, lab1::date::Date& out)
 {
     if (text.length() != 10)
     {
@@ -48,7 +48,7 @@ bool parse_date(const std::string &text, lab1::date::Date &out)
     return true;
 }
 
-bool parse_int(const std::string &text, int &out)
+bool parse_int(const std::string& text, int& out)
 {
     const std::size_t length = text.length();
     std::size_t start = 0;
@@ -76,7 +76,7 @@ bool parse_int(const std::string &text, int &out)
     return true;
 }
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     if (argc < 2)
     {
@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
             return 1;
         }
 
-        const char *names[] = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
+        const char* names[] = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
         std::cout << names[lab1::date::day_of_week(d)] << "\n";
         return 0;
     }
@@ -114,8 +114,7 @@ int main(int argc, char *argv[])
     {
         lab1::date::Date d;
         int delta = 0;
-        if (!parse_date(argv[2], d) || !lab1::date::is_valid(d) ||
-            !parse_int(argv[3], delta))
+        if (!parse_date(argv[2], d) || !lab1::date::is_valid(d) || !parse_int(argv[3], delta))
         {
             std::cout << "INVALID\n";
             return 1;
@@ -128,8 +127,7 @@ int main(int argc, char *argv[])
             return 1;
         }
 
-        std::cout << std::setfill('0') << std::setw(4) << result.year << '-'
-                  << std::setw(2) << result.month << '-'
+        std::cout << std::setfill('0') << std::setw(4) << result.year << '-' << std::setw(2) << result.month << '-'
                   << std::setw(2) << result.day << "\n";
         return 0;
     }
@@ -137,8 +135,7 @@ int main(int argc, char *argv[])
     {
         lab1::date::Date a;
         lab1::date::Date b;
-        if (!parse_date(argv[2], a) || !lab1::date::is_valid(a) ||
-            !parse_date(argv[3], b) || !lab1::date::is_valid(b))
+        if (!parse_date(argv[2], a) || !lab1::date::is_valid(a) || !parse_date(argv[3], b) || !lab1::date::is_valid(b))
         {
             std::cout << "INVALID\n";
             return 1;
@@ -147,6 +144,6 @@ int main(int argc, char *argv[])
         std::cout << lab1::date::days_between(a, b) << "\n";
         return 0;
     }
-     std::cerr << "Unknown command or wrong number of arguments\n";
+    std::cerr << "Unknown command or wrong number of arguments\n";
     return 2;
 }
