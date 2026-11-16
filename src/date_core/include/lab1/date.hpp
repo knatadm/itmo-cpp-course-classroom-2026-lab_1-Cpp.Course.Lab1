@@ -5,9 +5,9 @@ namespace lab1::date
 
 struct Date
 {
-        int year = 0;
-        int month = 1;
-        int day = 1;
+    int year = 0;
+    int month = 1;
+    int day = 1;
 };
 
 int days_in_month(int year, int month);
