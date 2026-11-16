@@ -10,7 +10,6 @@ struct Date
         int day = 1;
 };
 
-bool is_leap(int year);
 int days_in_month(int year, int month);
 bool is_valid(Date date);
 
