@@ -5,7 +5,9 @@ namespace lab1::date
 
 struct Date
 {
-    // TODO: Your code
+        int year = 0;
+        int month = 1;
+        int day = 1;
 };
 
 bool is_leap(int year);
